@@ -20,12 +20,15 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+      - name: Install Gradle
+        run: |
+          wget -q https://services.gradle.org/distributions/gradle-9.3.1-bin.zip -O gradle.zip
+          unzip -q gradle.zip
+          echo "PATH=$PWD/gradle-9.3.1/bin:$PATH" >> $GITHUB_ENV
 
       - name: Generate Gradle Wrapper
         run: |
-          gradle wrapper --gradle-version 8.13
+          gradle wrapper --gradle-version 9.3.1
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --stacktrace
