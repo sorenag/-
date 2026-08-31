@@ -20,6 +20,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Fix KSP version (2.3.5 has a known CI bug)
+        run: |
+          sed -i 's/googleDevtoolsKsp = "2.3.5"/googleDevtoolsKsp = "2.3.6"/' gradle/libs.versions.toml
+
       - name: Install Gradle
         run: |
           wget -q https://services.gradle.org/distributions/gradle-9.3.1-bin.zip -O gradle.zip
