@@ -1,0 +1,6 @@
+{
+  "name": "Shahan",
+  "description": "Shahan - Iranian Kings & Dynasties History App / شاهان - تاریخ پادشاهان و سلسله‌های ایران",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
